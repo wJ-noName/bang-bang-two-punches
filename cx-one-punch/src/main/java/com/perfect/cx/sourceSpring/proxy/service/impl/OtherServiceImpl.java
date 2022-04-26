@@ -1,6 +1,6 @@
-package com.perfect.cx.sourceSpring.service.impl;
+package com.perfect.cx.sourceSpring.proxy.service.impl;
 
-import com.perfect.cx.sourceSpring.service.MyServiceInterface;
+import com.perfect.cx.sourceSpring.proxy.service.MyServiceInterface;
 
 public class OtherServiceImpl implements MyServiceInterface {
     @Override

@@ -1,6 +1,6 @@
-package com.perfect.cx.sourceSpring;
+package com.perfect.cx.sourceSpring.proxy;
 
-import com.perfect.cx.sourceSpring.service.MyServiceInterface;
+import com.perfect.cx.sourceSpring.proxy.service.MyServiceInterface;
 
 public class AopProxy1 {
     private MyServiceInterface myService;

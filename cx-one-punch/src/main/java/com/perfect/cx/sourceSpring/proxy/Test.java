@@ -1,11 +1,10 @@
-package com.perfect.cx.sourceSpring;
+package com.perfect.cx.sourceSpring.proxy;
 
-import com.perfect.cx.sourceSpring.interceptor.Interceptor;
-import com.perfect.cx.sourceSpring.interceptor.LogInterceptor;
-import com.perfect.cx.sourceSpring.interceptor.TimeInterceptor;
-import com.perfect.cx.sourceSpring.service.MyServiceInterface;
-import com.perfect.cx.sourceSpring.service.impl.MyServiceImpl;
-import com.perfect.cx.sourceSpring.service.impl.OtherServiceImpl;
+import com.perfect.cx.sourceSpring.proxy.interceptor.Interceptor;
+import com.perfect.cx.sourceSpring.proxy.interceptor.LogInterceptor;
+import com.perfect.cx.sourceSpring.proxy.interceptor.TimeInterceptor;
+import com.perfect.cx.sourceSpring.proxy.service.MyServiceInterface;
+import com.perfect.cx.sourceSpring.proxy.service.impl.OtherServiceImpl;
 
 
 public class Test {

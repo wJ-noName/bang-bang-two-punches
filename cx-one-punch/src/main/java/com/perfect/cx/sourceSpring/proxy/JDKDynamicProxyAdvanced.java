@@ -1,6 +1,6 @@
-package com.perfect.cx.sourceSpring;
+package com.perfect.cx.sourceSpring.proxy;
 
-import com.perfect.cx.sourceSpring.interceptor.Interceptor;
+import com.perfect.cx.sourceSpring.proxy.interceptor.Interceptor;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

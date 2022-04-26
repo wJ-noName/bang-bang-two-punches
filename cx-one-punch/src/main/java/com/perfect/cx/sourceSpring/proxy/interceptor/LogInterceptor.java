@@ -1,4 +1,4 @@
-package com.perfect.cx.sourceSpring.interceptor;
+package com.perfect.cx.sourceSpring.proxy.interceptor;
 
 public class LogInterceptor implements Interceptor{
     @Override
