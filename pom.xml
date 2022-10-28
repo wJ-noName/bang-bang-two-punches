@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.perfect.cx</groupId>
     <artifactId>bang-bang-two-punches</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>cx perfect pong pong punches</description>
     <packaging>pom</packaging>
@@ -58,6 +58,7 @@
         <xxl-job-core.version>2.2.0</xxl-job-core.version>
         <webmagic.version>0.7.3</webmagic.version>
         <jsoupXpath.version>2.4.3</jsoupXpath.version>
+        <fastjson.version>1.2.73</fastjson.version>
     </properties>
 
     <dependencies>
@@ -158,6 +159,11 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.8.14</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
     </dependencies>
 
