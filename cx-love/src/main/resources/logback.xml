@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
+    <springProperty name="APP_NAME" scope="context" source="spring.application.name"/>
+    <!-- 定义日志的根目录 -->
+    <property name="LOG_HOME" value="/data/logs/${APP_NAME}"/>
+
+    <springProperty scope="context" name="ip" source="spring.cloud.client.ip-address"/>
+    <springProperty scope="context" name="active" source="spring.profiles.active"/>
+
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{traceId}] %-5level %logger{50} %L - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 按照每天生成日志文件 -->
+    <appender name="FILE"
+      class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 设置按尺寸和时间（同时满足）分割 -->
+        <rollingPolicy
+          class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LOG_HOME}/${APP_NAME}.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxFileSize>64MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1000MB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "ip": "${ip}",
+                        "time": "%d",
+                        "level": "%level",
+                        "thread": "%thread",
+                        "class": "%logger{40}",
+                        "message": "%message",
+                        "stack_trace": "%exception{10}",
+                        "trace_id": "%X{traceId}",
+                        "trace-position": "%X{trace-position}"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework.cloud.kubernetes" level="ERROR"/>
+    <logger name="io.fabric8.kubernetes" level="ERROR"/>
+    <logger name="com.aliyun.dts" level="ERROR"/>
+    <logger name="org.apache.kafka" level="ERROR"/>
+    <logger name="com.zaxxer.hikari" level="ERROR"/>
+    <logger name="com.alibaba.nacos.client" level="ERROR"/>
+    <logger name="com.purcotton.designer.expand.advice" level="ERROR"/>
+    <logger name="com.purcotton.tenant.common.feign.CommonFeignHeaderProcessInterceptor" level="OFF"/>
+
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
