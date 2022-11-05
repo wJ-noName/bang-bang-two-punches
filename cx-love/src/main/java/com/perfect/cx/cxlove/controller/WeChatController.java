@@ -51,7 +51,7 @@ public class WeChatController {
         resultVo.setAttribute("rainbow",new DataItem(rainbow,"#FF69B4"));
         //4.其他
         String remark = "❤";
-        if(DataUtils.getBirthDays(WeChatConfigure.Love_Day) == 0){
+        if(love_days%365 == 0){
             remark = "今天是恋爱周年纪念日！永远爱你~";
         }else if(girl_birthday == 0){
             remark = "今天是美欣欣宝贝的生日！生日快乐哟~";

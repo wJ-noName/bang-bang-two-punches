@@ -10,7 +10,7 @@ public class PushTask {
     @Autowired
     private WeChatController weChatController;
 
-    @Scheduled(cron = "0 0 0 * * ?")
+    @Scheduled(cron = "0 30 7 * * ?")
     public void scheduledPush(){
         weChatController.push();
     }
