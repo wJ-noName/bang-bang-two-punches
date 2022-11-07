@@ -26,6 +26,12 @@ public class WeChatConfigure {
         Open_ID = OpenID;
     }
 
+    public static String Open_ID_two;
+    @Value("${WeChat.OpenID.two}")
+    public void setOpenIDTwo(String OpenIDTwo) {
+        Open_ID_two = OpenIDTwo;
+    }
+
     public static String Template_ID;
     @Value("${WeChat.TemplateID}")
     public void setTemplateID(String TemplateID) {

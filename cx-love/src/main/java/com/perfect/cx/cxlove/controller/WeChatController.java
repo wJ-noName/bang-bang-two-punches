@@ -61,6 +61,8 @@ public class WeChatController {
         resultVo.setAttribute("remark",new DataItem(remark,"#FF1493"));
         //5.发送请求，推送消息
         String responseStr = restTemplate.postForObject(WeChatConfigure.Send_URL, resultVo, String.class, DataUtils.getAccessToken(restTemplate));
-        log.info("推送消息返回:{}", responseStr);
+        resultVo.setTouser(WeChatConfigure.Open_ID_two);
+        String responseStrTwo = restTemplate.postForObject(WeChatConfigure.Send_URL, resultVo, String.class, DataUtils.getAccessToken(restTemplate));
+        log.info("推送消息返回:{}", responseStrTwo);
     }
 }
