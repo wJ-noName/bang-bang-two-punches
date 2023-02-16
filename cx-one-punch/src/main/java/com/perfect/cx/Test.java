@@ -1,27 +1,33 @@
 package com.perfect.cx;
 
+import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.lang.hash.Hash;
+import cn.hutool.core.util.ObjectUtil;
+import com.perfect.cx.utils.DateUtils;
 import org.apache.commons.lang.StringUtils;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Test {
+
     public static void main(String[] args) {
-        String businessMan = "0";
-        String businessCode ;
-        String businessName;
-        if (StringUtils.isNotBlank(businessMan)) {
-            String[] business = businessMan.split(" ");
-            businessCode = business[0];
-            businessName = business.length == 2 ? business[1] : "0";
-        }
+        ArrayList<Integer> objects = new ArrayList<>();
+        objects.add(1);
+        objects.add(2);
+        objects.add(7);
+        ArrayList<Integer> objectss = new ArrayList<>();
+
+
+
+        Collection<Integer> intersection = CollectionUtil.intersection(objects, objectss);
+        Set<Integer> integers = CollectionUtil.intersectionDistinct(objects, objectss);
+        Collection<Integer> subtract = CollectionUtil.subtract(objectss, objects);
+        Set<Integer> integers1 = new HashSet<>(subtract);
+        System.out.println(intersection);
+        System.out.println(integers);
+        System.out.println(subtract);
+        System.out.println(integers1);
     }
 
-    // 增加或减少天数
-    public static Date addDay(Date date, int num) {
-        Calendar startDT = Calendar.getInstance();
-        startDT.setTime(date);
-        startDT.add(Calendar.DAY_OF_MONTH, num);
-        return startDT.getTime();
-    }
 }

@@ -31,7 +31,7 @@
         <commons-configuration.version>1.10</commons-configuration.version>
         <mybatis-plus-boot-starter.version>3.1.2</mybatis-plus-boot-starter.version>
         <druid-starter>1.1.17</druid-starter>
-        <hutool.version>4.5.1</hutool.version>
+        <hutool.version>5.8.5</hutool.version>
         <redisson.version>3.9.1</redisson.version>
         <mysql.connector.version>5.1.41</mysql.connector.version>
         <dubbo-registry-nacos.version>0.0.1</dubbo-registry-nacos.version>
